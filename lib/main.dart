@@ -7,6 +7,14 @@ void main(List<String> args) {
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  void increment() {
+    print("plus 1");
+  }
+
+  void decrement() {
+    print('minus 1');
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,9 +30,9 @@ class HomePage extends StatelessWidget {
                   fontSize: 30,
                   fontWeight: FontWeight.w500),
             ),
-            Padding(
-              padding: const EdgeInsets.all(30),
-              child: const Text(
+            const Padding(
+              padding: EdgeInsets.all(30),
+              child: Text(
                 '0',
                 style: TextStyle(
                     color: Colors.white,
@@ -36,37 +44,39 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextButton(
-                  onPressed: null,
-                  child: Text(
-                    "Got in",
+                  onPressed: decrement,
+                  style: TextButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      fixedSize: const Size(100, 100),
+                      primary: Colors.black,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20))),
+                  child: const Text(
+                    "Got out",
                     style: TextStyle(
                         color: Colors.blue,
                         fontSize: 20,
                         fontWeight: FontWeight.w600),
                   ),
-                  style: TextButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      fixedSize: const Size(100, 100),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20))),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 30,
                 ),
                 TextButton(
-                    onPressed: null,
+                    onPressed: increment,
+                    style: TextButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        primary: Colors.black,
+                        fixedSize: const Size(100, 100),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20))),
                     child: const Text(
-                      "Got out",
+                      "Got in",
                       style: TextStyle(
                           color: Colors.blue,
                           fontSize: 20,
                           fontWeight: FontWeight.w600),
-                    ),
-                    style: TextButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        fixedSize: const Size(100, 100),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20))))
+                    ))
               ],
             )
           ],
