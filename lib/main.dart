@@ -1,17 +1,30 @@
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
-  runApp(const HomePage());
+  runApp(const HomePageFul());
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePageFul extends StatefulWidget {
+  const HomePageFul({Key? key}) : super(key: key);
+
+  @override
+  State<HomePageFul> createState() => _HomePageFulState();
+}
+
+class _HomePageFulState extends State<HomePageFul> {
+  int aux = 0;
 
   void increment() {
+    setState(() {
+      aux++;
+    });
     print("plus 1");
   }
 
   void decrement() {
+    setState(() {
+      aux--;
+    });
     print('minus 1');
   }
 
@@ -30,10 +43,10 @@ class HomePage extends StatelessWidget {
                   fontSize: 30,
                   fontWeight: FontWeight.w500),
             ),
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(30),
               child: Text(
-                '0',
+                '$aux',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 30,
